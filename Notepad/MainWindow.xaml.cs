@@ -33,86 +33,102 @@ namespace Notepad
 
         private void NewClick(object sender, RoutedEventArgs e)
         {
+            File.New(TextBox);
         }
 
         private void OpenClick(object sender, RoutedEventArgs e)
         {
+            File.Open(TextBox);
         }
 
         private void SaveClick(object sender, RoutedEventArgs e)
         {
+            File.Save(TextBox);
         }
 
         private void SaveAsClick(object sender, RoutedEventArgs e)
         {
+            File.SaveAs(TextBox);
         }
 
         private void ExitClick(object sender, RoutedEventArgs e)
         {
+            File.Exit();
         }
 
         private void BackClick(object sender, RoutedEventArgs e)
         {
+            Edit.Back();
         }
 
         private void CutClick(object sender, RoutedEventArgs e)
         {
+            Edit.Cut();
         }
 
         private void CopyClick(object sender, RoutedEventArgs e)
         {
+            Edit.Copy();
         }
 
         private void PasteClick(object sender, RoutedEventArgs e)
         {
+            Edit.Paste();
         }
 
         private void DeleteClick(object sender, RoutedEventArgs e)
         {
+            Edit.Delete();
         }
 
         private void FindClick(object sender, RoutedEventArgs e)
         {
+            FindReplace.FindWindow(TextBox);
         }
 
         private void FindNextClick(object sender, RoutedEventArgs e)
         {
+            FindReplace.FindNext();
         }
 
         private void ReplaceClick(object sender, RoutedEventArgs e)
         {
+            FindReplace.ReplaceWindow(TextBox);
         }
 
         private void SelectAllClick(object sender, RoutedEventArgs e)
         {
+            Edit.SelectAll();
         }
 
         private void TimeClick(object sender, RoutedEventArgs e)
         {
+            Edit.DateAndTime();
         }
 
         private void FontClick(object sender, RoutedEventArgs e)
         {
+            Format.ChangeFont(TextBox);
         }
 
         private void ColorClick(object sender, RoutedEventArgs e)
         {
+            Format.ChangeColor(TextBox);
         }
 
         private void WordWrappedClick(object sender, RoutedEventArgs e)
         {
+            Format.WordWrap(TextBox);
         }
 
         private void StatusBar_Click(object sender, RoutedEventArgs e)
         {
+            View.StatusBar(Bar, TextBox);
         }
 
         private void GotoClick(object sender, RoutedEventArgs e)
         {
-        }
-
-        private void TextBoxSelectionChanged(object sender, RoutedEventArgs e)
-        {
+            Edit.GoToWindow();
         }
 
         #region SHORTCUTS
@@ -153,14 +169,14 @@ namespace Notepad
 
         public void RefreshExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            Edit.DateAndTime(TextBox);
+            Edit.DateAndTime();
         }
 
-        private void TextBox_SelectionChanged(object sender, RoutedEventArgs e)
+        private void TextBoxSelectionChanged(object sender, RoutedEventArgs e)
         {
-            var row = TextBox.GetLineIndexFromCharacterIndex(TextBox.CaretIndex);
+            var row = TextBox.GetLineIndexFromCharacterIndex(TextBox.CaretIndex) ;
             var c = TextBox.CaretIndex - TextBox.GetCharacterIndexFromLineIndex(row);
-            lblCursorPosition.Text = $"Line: {row}, character: {c}";
+            lblCursorPosition.Text = $"Line: {row + 1}, character: {c}";
         }
     }
     #endregion

@@ -1,0 +1,22 @@
+﻿<Window x:Class="Notepad.GoTo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Notepad"
+        mc:Ignorable="d"
+        Title="GoTo" Height="120" Width="200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="TextBoxLine" Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Margin="0,0,0,0"/>
+        <Button x:Name="BtnOk" Content="OK" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Margin="0,0,0,0" Grid.Row="1" Click="BtnOkOnClick"/>
+        <Button x:Name="BtnCancel" Content="Cancel" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Grid.Column="1" Margin="0,0,0,0" Grid.Row="1" Click="BtnCancelOnClick"/>
+    </Grid>
+</Window>
